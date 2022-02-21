@@ -35,7 +35,8 @@ public abstract class Unit {
      * @param opponent
      */
     protected void attack(Unit opponent) {
-        //health = health - (attack + attackBonus) + (armor + resistBonus)
+        opponent = new opponent;
+        this.health = getHealth() - (getAttack() + getAttackBonus()) + (getArmor() + getResistBonus());
     }
 
     /**
@@ -80,6 +81,29 @@ public abstract class Unit {
     protected void setHealth(int newHealth) {
         health = newHealth;
     }
+
+    /**
+     * Returns infromation of the unit in form of a string
+     *
+     * @return a string relevant to the unit.
+     */
+    public String toString() {
+        return name+". Health: "+health+". Armor: " + armor+". Attack: ";
+    }
+
+    /**
+     * Abstract method of getAttackBonus.
+     *
+     * @return attackBonus.
+     */
+    abstract protected int getAttackBonus();
+
+    /**
+     * Abstract method of getRessistBonud.
+     *
+     * @return resistBonus.
+     */
+    abstract protected int getResistBonus();
 
 
 
