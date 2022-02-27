@@ -32,11 +32,11 @@ public abstract class Unit {
 
     /**
      * Changes the healt of the oppenent after the units atttck.
-     * @param opponent
+     * @param unit
      */
-    protected void attack(Unit opponent) {
-        opponent = new opponent;
-        this.health = getHealth() - (getAttack() + getAttackBonus()) + (getArmor() + getResistBonus());
+    protected void attack(Unit unit){
+        int h = unit.health - (this.attack+this.getAttackBonus()) + (unit.armor+unit.getResistBonus());
+        unit.setHealth(h);
     }
 
     /**
@@ -79,16 +79,22 @@ public abstract class Unit {
      * Changes the health of the unit.
      */
     protected void setHealth(int newHealth) {
-        health = newHealth;
+        if (newHealth < 0) {
+            throw new IllegalArgumentException("Health is invalid");
+        }
+        else {
+            health = newHealth;
+        }
     }
 
     /**
-     * Returns infromation of the unit in form of a string
+     * Returns information about the unit in form of a string
      *
      * @return a string relevant to the unit.
      */
+    @Override
     public String toString() {
-        return name+". Health: "+health+". Armor: " + armor+". Attack: ";
+        return name+". Health: "+health+". Armor: " + armor+". Attack: "+ attack;
     }
 
     /**
