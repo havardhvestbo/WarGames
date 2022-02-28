@@ -8,7 +8,7 @@ package no.ntnu.iir.wargames;
  */
 public class RangedUnit extends Unit {
 
-  private int numAttacks = 0;
+  private int numAttacks = 3;
 
   /**
    * Creates an instance of RangedUnit
