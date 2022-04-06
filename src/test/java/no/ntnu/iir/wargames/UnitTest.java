@@ -15,6 +15,9 @@ public class UnitTest {
     assertEquals(100,u.getHealth());
     assertEquals(15, u.getAttack());
     assertEquals(10, u.getArmor());
+    assertEquals(2, u.getAttackBonus());
+    assertEquals(1, u.getResistBonus());
+
   }
 
   @Test
@@ -24,6 +27,9 @@ public class UnitTest {
     assertEquals(100,u.getHealth());
     assertEquals(20, u.getAttack());
     assertEquals(12, u.getArmor());
+    assertEquals(6, u.getAttackBonus());
+    assertEquals(2, u.getAttackBonus());
+    assertEquals(1, u.getResistBonus());
   }
 
   @Test
@@ -33,6 +39,10 @@ public class UnitTest {
     assertEquals(100,u.getHealth());
     assertEquals(15, u.getAttack());
     assertEquals(8, u.getArmor());
+    assertEquals(3, u.getAttackBonus());
+    assertEquals(6,u.getResistBonus());
+    assertEquals(4,u.getResistBonus());
+    assertEquals(2,u.getResistBonus());
   }
 
   @Test
@@ -42,6 +52,8 @@ public class UnitTest {
     assertEquals(180,u.getHealth());
     assertEquals(25, u.getAttack());
     assertEquals(15, u.getArmor());
+    assertEquals(6, u.getAttackBonus());
+    assertEquals(1, u.getResistBonus());
   }
 
 

@@ -4,7 +4,7 @@ package no.ntnu.iir.wargames;
  * A subclass of class Unit representing a RangedUnit
  *
  * @author Håvard H. Vestbø
- * @version snapshot 1.0
+ * @version 1.0
  */
 public class RangedUnit extends Unit {
 

@@ -4,7 +4,7 @@ package no.ntnu.iir.wargames;
  * A class representing shared characteristics of Units
  *
  * @author Håvard H. Vestbø
- * @version snapshot 1.0
+ * @version 1.0
  */
 
 public abstract class Unit {
@@ -24,8 +24,12 @@ public abstract class Unit {
      */
     public Unit(String name, int health, int attack, int armor) {
         this.name = name;
-        this.health = health;
-        //Health cannot be lower than 0
+        if (health > 0) {
+            this.health = health;
+        }
+        else {
+            this.health = 0;
+        }
         this.attack = attack;
         this.armor = armor;
     }
@@ -79,12 +83,12 @@ public abstract class Unit {
      * Changes the health of the unit.
      */
     protected void setHealth(int newHealth) {
-        if (newHealth < 0) {
-            throw new IllegalArgumentException("Health is invalid");
-        }
-        else {
+       // if (newHealth < 0) {
+       //     throw new IllegalArgumentException("Health is invalid");
+        //}
+        //else {
             health = newHealth;
-        }
+        //}
     }
 
     /**
@@ -95,6 +99,7 @@ public abstract class Unit {
     @Override
     public String toString() {
         return name+". Health: "+health+". Armor: " + armor+". Attack: "+ attack;
+
     }
 
     /**
