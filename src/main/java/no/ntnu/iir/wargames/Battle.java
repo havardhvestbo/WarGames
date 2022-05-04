@@ -1,7 +1,7 @@
 package no.ntnu.iir.wargames;
 
 /**
- * Class simulating the battle between two armies. Retrurning the winner.
+ * Class simulating the battle between two armies. Returning the winner.
  *
  * @author Håvard H. Vestbø
  * @version 1.0
