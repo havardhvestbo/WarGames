@@ -44,6 +44,6 @@ public class BattleClient {
 
     Battle battle = new Battle(armyOne, armyTwo);
     Army winningArmy = battle.simulate();
-    System.out.println(winningArmy);
+    System.out.println(winningArmy.toString());
   }
 }

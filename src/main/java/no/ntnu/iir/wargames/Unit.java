@@ -35,12 +35,17 @@ public abstract class Unit {
     }
 
     /**
-     * Changes the healt of the oppenent after the units atttck.
-     * @param unit
+     * Changes the health of the oppenent after the units attack.
+     *
+     * @param  opponent heatlh
      */
-    protected void attack(Unit unit){
-        int h = unit.health - (this.attack+this.getAttackBonus()) + (unit.armor+unit.getResistBonus());
-        unit.setHealth(h);
+    protected void attack(Unit opponent){
+        int damageAndResistance = opponent.health - (this.attack + this.getAttackBonus()) + (opponent.armor + opponent.getResistBonus());
+        opponent.setHealth(damageAndResistance);
+        if (damageAndResistance < 0) {
+            int opponentsNewHealth = opponent.getHealth() + damageAndResistance;
+            opponent.setHealth(opponentsNewHealth);
+        }
     }
 
     /**

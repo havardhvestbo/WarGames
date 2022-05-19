@@ -12,12 +12,12 @@ public class Battle {
   private Army armyOne;
   private Army armyTwo;
 
-    /**
-     * Constructing the battle between the armies.
-     *
-     * @param armyOne
-     * @param armyTwo
-     */
+  /**
+   * Constructing the battle between the armies.
+   *
+   * @param armyOne
+   * @param armyTwo
+   */
   public Battle(Army armyOne, Army armyTwo) {
 
     this.armyOne = armyOne;
@@ -25,34 +25,34 @@ public class Battle {
   }
 
   /**
-   * Method simulating the battle between the two armies.
+   * Method simulating the battle between the two armies until one army is empty. Army with remaining units is the winner.
    *
    * @return winning army
    */
   public Army simulate() {
 
-    while(armyOne.hasUnits() && armyTwo.hasUnits()) {
+    while (armyOne.hasUnits() && armyTwo.hasUnits()) {
 
       Unit unitOne = armyOne.getRandom();
       Unit unitTwo = armyTwo.getRandom();
-      unitTwo.attack(unitOne);
-      unitOne.attack(unitTwo);
-      if (unitTwo.getHealth() == 0) {
-        armyTwo.remove(unitTwo);
+      while (unitTwo.getHealth() > 0 || unitOne.getHealth() > 0) {
+
+        unitOne.attack(unitTwo);
+        if (unitTwo.getHealth() <= 0) {
+          armyTwo.remove(unitTwo);
+        }
+        unitTwo.attack(unitOne);
+        if (unitOne.getHealth() <= 0) {
+          armyOne.remove(unitOne);
+        }
       }
 
-      if (unitOne.getHealth() == 0) {
-        armyOne.remove(unitOne);
+      if (armyOne.getAllUnits().isEmpty()) {
+        return armyTwo;
+      } else if (armyTwo.getAllUnits().isEmpty()) {
+        return armyOne;
       }
     }
-
-    if (armyOne.getAllUnits().isEmpty()) {
-      return armyTwo;
-    } else if (armyTwo.getAllUnits().isEmpty()) {
-      return armyOne;
-    } else {
-      return null;
-    }
+    return null;
   }
-
 }

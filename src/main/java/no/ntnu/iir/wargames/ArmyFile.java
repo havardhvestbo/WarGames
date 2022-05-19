@@ -5,6 +5,12 @@ import java.net.URISyntaxException;
 import java.nio.Buffer;
 import java.nio.file.Path;
 import java.util.List;
+import no.ntnu.iir.wargames.Army;
+import no.ntnu.iir.wargames.CavalryUnit;
+import no.ntnu.iir.wargames.CommanderUnit;
+import no.ntnu.iir.wargames.InfantryUnit;
+import no.ntnu.iir.wargames.RangedUnit;
+import no.ntnu.iir.wargames.Unit;
 
 public class ArmyFile {
   public static void main(String[] args) throws URISyntaxException, IOException {
@@ -31,7 +37,7 @@ public class ArmyFile {
 
   public static void fileWriter(Army army) throws IOException {
     List<Unit> units = army.getAllUnits();
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(army.getArmyName()+ ".csv"))){
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/no/ntnu/iir/wargames/" + army.getArmyName()+ ".csv"))){
       writer.write(army.getArmyName());
       writer.newLine();
       for (Unit unit : units){
@@ -55,10 +61,10 @@ public class ArmyFile {
 
     System.out.println(file.isFile());
 
-    fileReader("Human-Army");
+    fileReader("ArmyFile");
   }
 
-  private static void testFileWritting() throws IOException {
+  private static void testFileWriting() throws IOException {
     Army army = new Army("Human Army");
     army.add(new InfantryUnit("Footman", 100));
     army.add(new CavalryUnit("Knight",100));
