@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.iir.wargames.UI.FrontPageController">
+   <children>
+      <BorderPane layoutY="81.0" prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0">
+         <center>
+            <Button fx:id="createGame" mnemonicParsing="false" onAction="#openCreateGame" style="-fx-background-color: gray;" text="Create Game" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+         </center>
+         <top>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="War Games" wrappingWidth="447.421875" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Impact" size="96.0" />
+               </font>
+            </Text>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

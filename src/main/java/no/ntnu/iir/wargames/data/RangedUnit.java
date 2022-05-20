@@ -1,4 +1,4 @@
-package no.ntnu.iir.wargames;
+package no.ntnu.iir.wargames.data;
 
 /**
  * A subclass of class Unit representing a RangedUnit
@@ -17,8 +17,8 @@ public class RangedUnit extends Unit {
    * @param attack
    * @param armor
    */
-  public RangedUnit(String name, int health, int attack, int armor) {
-    super(name, health, attack, armor);
+  public RangedUnit(String name, int health, int attack, int armor, Terrain terrain) {
+    super(name, health, attack, armor, terrain);
   }
 
   /**
@@ -26,24 +26,23 @@ public class RangedUnit extends Unit {
    * @param name
    * @param health
    */
-  public RangedUnit(String name, int health) {
-    super(name, health, 15, 8);
+  public RangedUnit(String name, int health, Terrain terrain) {
+    super(name, health, 15, 8, terrain);
   }
 
-  /**
-   * Returns the unit´s attack bonus.
-   *
-   * @return int
-   */
+  @Override
   public int getAttackBonus() {
-    return 3;
+    int attackBonus = 3;
+    if (getTerrain() == Terrain.HILL) {
+      attackBonus ++;
+    }
+    else if (getTerrain() == Terrain.FOREST) {
+      attackBonus --;
+    }
+    return attackBonus;
   }
 
-  /**
-   * Returns the unit´s resist bonus.
-   *
-   * @return int
-   */
+  @Override
   public int getResistBonus() {
     int value = numAttacks*2;
     numAttacks--;
