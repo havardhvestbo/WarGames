@@ -19,7 +19,7 @@ public class WarGamesApp extends Application {
       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FrontPage.fxml"));
       Parent root = fxmlLoader.load();
       FrontPageController frontPageController = fxmlLoader.getController();
-      Scene scene = new Scene(root, 700, 400);
+      Scene scene = new Scene(root, 600, 400);
       primaryStage.setTitle("War Games");
       primaryStage.setScene(scene);
       primaryStage.setResizable(false);

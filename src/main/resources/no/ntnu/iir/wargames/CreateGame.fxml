@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.iir.wargames.UI.CreateGameController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.iir.wargames.UI.CreateGameController">
    <children>
       <SplitPane dividerPositions="0.33, 0.66" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -29,7 +28,7 @@
                   <Spinner layoutX="173.0" layoutY="215.0" prefHeight="23.0" prefWidth="70.0" />
                   <Spinner layoutX="173.0" layoutY="279.0" prefHeight="23.0" prefWidth="70.0" />
                   <Spinner layoutX="173.0" layoutY="342.0" prefHeight="23.0" prefWidth="70.0" />
-                  <Button layoutX="77.0" layoutY="419.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button layoutX="62.0" layoutY="486.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -48,19 +47,19 @@
                   <Spinner layoutX="171.0" layoutY="215.0" prefHeight="23.0" prefWidth="70.0" />
                   <Spinner layoutX="171.0" layoutY="282.0" prefHeight="23.0" prefWidth="70.0" />
                   <Spinner layoutX="171.0" layoutY="343.0" prefHeight="23.0" prefWidth="70.0" />
-                  <Button layoutX="68.0" layoutY="421.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button layoutX="68.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="69.0">
                <children>
-                  <Button layoutX="28.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Start game" textFill="WHITE">
+                  <Button layoutX="28.0" layoutY="504.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Start game" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <CheckBox layoutX="97.0" layoutY="66.0" mnemonicParsing="false" style="-fx-: 5;" text="Hills" />
-                  <CheckBox layoutX="97.0" layoutY="121.0" mnemonicParsing="false" style="-fx-: 5;" text="Forrest" />
-                  <CheckBox layoutX="97.0" layoutY="180.0" mnemonicParsing="false" style="-fx-: 5;" text="Plains" />
+                  <CheckBox layoutX="97.0" layoutY="153.0" mnemonicParsing="false" style="-fx-: 5;" text="Hills" />
+                  <CheckBox layoutX="97.0" layoutY="222.0" mnemonicParsing="false" style="-fx-: 5;" text="Forrest" />
+                  <CheckBox layoutX="100.0" layoutY="290.0" mnemonicParsing="false" style="-fx-: 5;" text="Plains" />
                </children>
             </AnchorPane>
         </items>
