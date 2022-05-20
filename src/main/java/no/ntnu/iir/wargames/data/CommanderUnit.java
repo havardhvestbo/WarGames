@@ -1,4 +1,4 @@
-package no.ntnu.iir.wargames;
+package no.ntnu.iir.wargames.data;
 
 /**
  * A subclass of class CavalryUnit representing a CommanderUnit
@@ -15,8 +15,8 @@ public class CommanderUnit extends CavalryUnit {
    * @param attack
    * @param armor
    */
-  public CommanderUnit(String name, int health, int attack, int armor) {
-    super(name, health, armor, attack);
+  public CommanderUnit(String name, int health, int attack, int armor, Terrain terrain) {
+    super(name, health, armor, attack, terrain);
   }
 
   /**
@@ -24,8 +24,8 @@ public class CommanderUnit extends CavalryUnit {
    * @param name
    * @param health
    */
-  public CommanderUnit(String name, int health) {
-    super(name, health, 25, 15);
+  public CommanderUnit(String name, int health, Terrain terrain) {
+    super(name, health, 25, 15, terrain);
   }
 
 }

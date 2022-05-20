@@ -1,4 +1,4 @@
-package no.ntnu.iir.wargames;
+package no.ntnu.iir.wargames.data;
 
 /**
  * A class representing shared characteristics of Units
@@ -13,6 +13,7 @@ public abstract class Unit {
     private int health;
     private int attack;
     private int armor;
+    private Terrain terrain;
 
     /**
      * Creates an instance of a Unit.
@@ -22,7 +23,7 @@ public abstract class Unit {
      * @param attack
      * @param armor
      */
-    public Unit(String name, int health, int attack, int armor) {
+    public Unit(String name, int health, int attack, int armor, Terrain terrain) {
         this.name = name;
         if (health > 0) {
             this.health = health;
@@ -32,6 +33,7 @@ public abstract class Unit {
         }
         this.attack = attack;
         this.armor = armor;
+        this.terrain = terrain;
     }
 
     /**
@@ -39,7 +41,7 @@ public abstract class Unit {
      *
      * @param  opponent heatlh
      */
-    protected void attack(Unit opponent){
+    public void attack(Unit opponent){
         int damageAndResistance = opponent.health - (this.attack + this.getAttackBonus()) + (opponent.armor + opponent.getResistBonus());
         opponent.setHealth(damageAndResistance);
         if (damageAndResistance < 0) {
@@ -53,7 +55,7 @@ public abstract class Unit {
      *
      * @return name og unit.
      */
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
@@ -62,7 +64,7 @@ public abstract class Unit {
      *
      * @return health.
      */
-    protected int getHealth() {
+    public int getHealth() {
         return health;
     }
 
@@ -71,7 +73,7 @@ public abstract class Unit {
      *
      * @return attack.
      */
-    protected int getAttack() {
+    public int getAttack() {
         return attack;
     }
 
@@ -80,20 +82,23 @@ public abstract class Unit {
      *
      * @return armor.
      */
-    protected int getArmor() {
+    public int getArmor() {
         return armor;
+    }
+
+    public Terrain getTerrain() {
+        return terrain;
+    }
+
+    public void setTerrain(Terrain newTerrain) {
+        terrain = newTerrain;
     }
 
     /**
      * Changes the health of the unit.
      */
-    protected void setHealth(int newHealth) {
-       // if (newHealth < 0) {
-       //     throw new IllegalArgumentException("Health is invalid");
-        //}
-        //else {
+    public void setHealth(int newHealth) {
             health = newHealth;
-        //}
     }
 
     /**
@@ -104,7 +109,6 @@ public abstract class Unit {
     @Override
     public String toString() {
         return name+". Health: "+health+". Armor: " + armor+". Attack: "+ attack;
-
     }
 
     /**

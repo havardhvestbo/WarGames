@@ -1,4 +1,7 @@
-package no.ntnu.iir.wargames;
+package no.ntnu.iir.wargames.simulation;
+
+import no.ntnu.iir.wargames.data.Army;
+import no.ntnu.iir.wargames.data.Unit;
 
 /**
  * Class simulating the battle between two armies. Returning the winner.
@@ -32,11 +35,10 @@ public class Battle {
   public Army simulate() {
 
     while (armyOne.hasUnits() && armyTwo.hasUnits()) {
-
       Unit unitOne = armyOne.getRandom();
       Unit unitTwo = armyTwo.getRandom();
-      while (unitTwo.getHealth() > 0 || unitOne.getHealth() > 0) {
 
+      while (unitTwo.getHealth() > 0 || unitOne.getHealth() > 0) {
         unitOne.attack(unitTwo);
         if (unitTwo.getHealth() <= 0) {
           armyTwo.remove(unitTwo);
@@ -46,7 +48,6 @@ public class Battle {
           armyOne.remove(unitOne);
         }
       }
-
       if (armyOne.getAllUnits().isEmpty()) {
         return armyTwo;
       } else if (armyTwo.getAllUnits().isEmpty()) {

@@ -10,7 +10,7 @@
    <children>
       <BorderPane layoutY="81.0" prefHeight="319.0" prefWidth="600.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0">
          <center>
-            <Button mnemonicParsing="false" style="-fx-background-color: gray;" text="Create Game" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="createGame" mnemonicParsing="false" onAction="#openCreateGame" style="-fx-background-color: gray;" text="Create Game" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font size="23.0" />
                </font>

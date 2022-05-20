@@ -3,13 +3,19 @@ package no.ntnu.iir.wargames;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+import no.ntnu.iir.wargames.data.Army;
+import no.ntnu.iir.wargames.data.CavalryUnit;
+import no.ntnu.iir.wargames.data.CommanderUnit;
+import no.ntnu.iir.wargames.data.InfantryUnit;
+import no.ntnu.iir.wargames.data.RangedUnit;
+import no.ntnu.iir.wargames.data.Terrain;
+import no.ntnu.iir.wargames.data.Unit;
 import org.junit.jupiter.api.Test;
 
 public class ArmyTest {
+
+  private Terrain terrain = Terrain.TEST;
 
   public ArmyTest() {
     }
@@ -24,7 +30,7 @@ public class ArmyTest {
     @Test
     public void testAdd() {
       Army army = new Army("Human Army");
-      InfantryUnit footman = new InfantryUnit("footman", 100);
+      InfantryUnit footman = new InfantryUnit("footman", 100, terrain);
       army.add(footman);
       assertEquals(true, army.hasUnits());
     }
@@ -33,10 +39,10 @@ public class ArmyTest {
     public void testAddAll() {
      List<Unit> units = new ArrayList<>();
       Army army = new Army("Human Army", units);
-      InfantryUnit infantryUnit = new InfantryUnit("Footman", 100);
-      CavalryUnit cavalryUnit = new CavalryUnit("Knight", 100);
-      RangedUnit rangedUnit = new RangedUnit("Archer", 100);
-      CommanderUnit commanderUnit = new CommanderUnit("Mountain King", 100);
+      InfantryUnit infantryUnit = new InfantryUnit("Footman", 100, terrain);
+      CavalryUnit cavalryUnit = new CavalryUnit("Knight", 100, terrain);
+      RangedUnit rangedUnit = new RangedUnit("Archer", 100, terrain);
+      CommanderUnit commanderUnit = new CommanderUnit("Mountain King", 100, terrain);
 
       ArrayList<Unit> unitList = new ArrayList<>();
       unitList.add(infantryUnit);
@@ -49,7 +55,7 @@ public class ArmyTest {
     @Test
     public void testRemove() {
       Army army = new Army("Human Army");
-      InfantryUnit footman = new InfantryUnit("footman", 100);
+      InfantryUnit footman = new InfantryUnit("footman", 100, terrain);
       army.add(footman);
       assertEquals(true, army.hasUnits());
       army.remove(footman);
@@ -59,10 +65,10 @@ public class ArmyTest {
     @Test
     public void testGetAllUnits() {
       Army army = new Army("Human Army");
-      InfantryUnit infantryUnit = new InfantryUnit("Footman", 100);
-      CavalryUnit cavalryUnit = new CavalryUnit("Knight", 100);
-      RangedUnit rangedUnit = new RangedUnit("Archer", 100);
-      CommanderUnit commanderUnit = new CommanderUnit("Mountain King", 100);
+      InfantryUnit infantryUnit = new InfantryUnit("Footman", 100, terrain);
+      CavalryUnit cavalryUnit = new CavalryUnit("Knight", 100, terrain);
+      RangedUnit rangedUnit = new RangedUnit("Archer", 100, terrain);
+      CommanderUnit commanderUnit = new CommanderUnit("Mountain King", 100, terrain);
       army.add(infantryUnit);
       army.add(cavalryUnit);
       army.add(rangedUnit);
@@ -81,9 +87,9 @@ public class ArmyTest {
     public void testGetRandom() {
       System.out.println("getRandom");
       Army army = new Army("Human");
-      Unit unit1 = new CavalryUnit("Cavalry Unit 1", 100, 50, 60);
-      Unit unit2 = new CommanderUnit("Commander Unit 1", 100, 50, 60);
-      Unit unit3 = new RangedUnit("Ranged Unit 1", 100, 50, 60);
+      Unit unit1 = new CavalryUnit("Cavalry Unit 1", 100, 50, 60, terrain);
+      Unit unit2 = new CommanderUnit("Commander Unit 1", 100, 50, 60, terrain);
+      Unit unit3 = new RangedUnit("Ranged Unit 1", 100, 50, 60, terrain);
 
       List<Unit> units = new ArrayList<>();
       units.add(unit1);
@@ -99,10 +105,10 @@ public class ArmyTest {
     @Test
   public void testGetInstanceOfUnit() {
     Army army = new Army("Human");
-    Unit unit1 = new CavalryUnit("Cavalry Unit 1", 100, 50, 60);
-    Unit unit2 = new CommanderUnit("Commander Unit 1", 100, 50, 60);
-    Unit unit3 = new RangedUnit("Ranged Unit 1", 100, 50, 60);
-    Unit unit4 = new InfantryUnit("Footman", 100,50,60);
+    Unit unit1 = new CavalryUnit("Cavalry Unit 1", 100, 50, 60, terrain);
+    Unit unit2 = new CommanderUnit("Commander Unit 1", 100, 50, 60, terrain);
+    Unit unit3 = new RangedUnit("Ranged Unit 1", 100, 50, 60, terrain);
+    Unit unit4 = new InfantryUnit("Footman", 100,50,60, terrain);
       army.add(unit1);
       army.add(unit2);
       army.add(unit3);
@@ -123,12 +129,5 @@ public class ArmyTest {
     List<Unit> expResult4 = new ArrayList<>();
     expResult4.add(unit3);
     assertEquals(expResult4, army.getRangedUnits());
-
-
-
-
     }
-
-
-
 }
