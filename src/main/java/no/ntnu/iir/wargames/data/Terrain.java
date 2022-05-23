@@ -1,8 +1,10 @@
 package no.ntnu.iir.wargames.data;
 
+/**
+ * Enums representing terrain types. Different type gives different attack/resistance bonuses.
+ */
 public enum Terrain {
-//  enum Terrains {
-    HILL, PLAIN, FOREST, TEST
+    HILL, PLAIN, FOREST, TEST, NOTERRAIN
   }
 //
 //  private Terrains currentTerrain;

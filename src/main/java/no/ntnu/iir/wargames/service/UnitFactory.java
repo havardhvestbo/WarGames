@@ -54,15 +54,10 @@ public class UnitFactory {
 
   public List<Unit> createUnits(UnitType unitType, String name, int health, Terrain terrain, int numUnits) {
     List<Unit> listOfUnits = new ArrayList<>();
-    if(numUnits > 0 || !name.isBlank() || name != null || health > 0 || terrain != null) {
       for (int index = 1; index <= numUnits; index++) {
         listOfUnits.add(createUnit(unitType , name, health, terrain));
       }
-    }
-    else {
-      throw new IllegalArgumentException("Invalid parameter");
-    }
-    return listOfUnits;
+     return listOfUnits;
   }
 }
 

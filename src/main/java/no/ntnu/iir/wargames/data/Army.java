@@ -78,7 +78,7 @@ public class Army {
   /**
    * Returns true if the list contains any units.
    *
-   * @return
+   * @return boolean true if army has units, false if empty
    */
   public boolean hasUnits() {
     if (units.isEmpty()) {
@@ -99,7 +99,7 @@ public class Army {
   /**
    * Returns a random unit from list units.
    *
-   * @return
+   * @return random unit
    */
   public Unit getRandom() {
     Random rand = new Random();
@@ -108,15 +108,9 @@ public class Army {
     Unit randomUnit = units.get(intRandom);
     return randomUnit;
   }
-
-  /**
-   * Returns information about the Army in a String.
-   *
-   * @return String
-   */
   @Override
   public String toString() {
-    return "Army{" + "armyName='" + armyName + '\'' + ", units=" + units + '}';
+    return "Army: " + armyName + '\'' + ", units left: " + units.size();
   }
 
   @Override
@@ -136,13 +130,22 @@ public class Army {
     return Objects.hash(armyName, units);
   }
 
-
+  /**
+   * Return units of type infantryUnit to a List
+   *
+   * @return List containing infantryUnits
+   */
   public List<Unit> getInfantryUnits() {
     return this.units.stream()
         .filter(unit -> unit.getClass().equals(InfantryUnit.class))
         .collect(Collectors.toList());
   }
 
+  /**
+   * Return units of type cavalryUnit to a List
+   *
+   * @return List containing infantryUnits
+   */
   public List<Unit> getCavalryUnits() {
     return this.units.stream()
         .filter(unit -> unit.getClass().equals(CavalryUnit.class))

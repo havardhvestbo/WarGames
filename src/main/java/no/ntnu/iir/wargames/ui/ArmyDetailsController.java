@@ -1,4 +1,4 @@
-package no.ntnu.iir.wargames.UI;
+package no.ntnu.iir.wargames.ui;
 
 public class ArmyDetailsController {
 }

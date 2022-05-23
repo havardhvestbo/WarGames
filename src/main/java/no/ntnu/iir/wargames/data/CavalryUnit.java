@@ -44,8 +44,9 @@ public class CavalryUnit extends Unit {
   @Override
   public int getResistBonus() {
     int resistBonus = 1;
-    if(getTerrain() == Terrain.FOREST)
+    if(getTerrain() == Terrain.FOREST) {
       resistBonus = 0;
+    }
     return resistBonus;
   }
 }

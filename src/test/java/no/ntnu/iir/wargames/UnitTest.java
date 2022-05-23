@@ -18,7 +18,7 @@ public class UnitTest {
 
   @Test
   public void createInstanceOfInfantryUnit() {
-    InfantryUnit u = new InfantryUnit("Footman", 100,terrain);
+    InfantryUnit u = new InfantryUnit("Footman", 100, terrain);
     assertEquals("Footman",u.getName());
     assertEquals(100,u.getHealth());
     assertEquals(15, u.getAttack());

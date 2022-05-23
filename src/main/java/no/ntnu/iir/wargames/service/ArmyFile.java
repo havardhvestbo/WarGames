@@ -39,12 +39,11 @@ public class ArmyFile {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(army.getArmyName()+ ".csv"))){
       writer.write(army.getArmyName());
       writer.newLine();
-      for (Unit unit : units){
+      for (Unit unit : units) {
         String lineToBeWritten = unit.getClass().getSimpleName()+ "," + unit.getName() + "," + unit.getHealth();
         writer.write(lineToBeWritten);
         writer.newLine();
       }
-
     } catch (IOException e) {
       throw e;
     }

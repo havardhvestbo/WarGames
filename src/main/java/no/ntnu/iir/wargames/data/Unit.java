@@ -24,16 +24,16 @@ public abstract class Unit {
      * @param armor
      */
     public Unit(String name, int health, int attack, int armor, Terrain terrain) {
-        this.name = name;
-        if (health > 0) {
-            this.health = health;
+        if (name == null || name.isBlank() || terrain == null || health <= 0) {
+            throw new IllegalArgumentException("Wrong input in parameter");
         }
         else {
-            this.health = 0;
+            this.name = name;
+            this.terrain = terrain;
+            this.health = health;
         }
         this.attack = attack;
         this.armor = armor;
-        this.terrain = terrain;
     }
 
     /**

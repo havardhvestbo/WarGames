@@ -7,19 +7,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.iir.wargames.UI.ResultController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.iir.wargames.ui.ResultController">
    <children>
       <Text layoutX="352.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result">
          <font>
             <Font name="Impact" size="37.0" />
          </font>
       </Text>
-      <TextField layoutX="56.0" layoutY="194.0" prefHeight="26.0" prefWidth="200.0" />
-      <TextField layoutX="519.0" layoutY="194.0" prefHeight="26.0" prefWidth="200.0" />
-      <TextArea layoutX="56.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField layoutX="56.0" layoutY="518.0" prefHeight="26.0" prefWidth="663.0" />
-      <TextArea layoutX="519.0" layoutY="261.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="army1Name" layoutX="56.0" layoutY="194.0" onAction="#getArmyName1" prefHeight="26.0" prefWidth="200.0" />
+      <TextField fx:id="army2Name" layoutX="519.0" layoutY="194.0" onAction="#getArmyName2" prefHeight="26.0" prefWidth="200.0" />
+      <TextArea fx:id="army1Result" layoutX="56.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="result" layoutX="56.0" layoutY="518.0" onAction="#getBattleResult" prefHeight="26.0" prefWidth="663.0" />
+      <TextArea fx:id="army2Result" layoutX="519.0" layoutY="261.0" prefHeight="200.0" prefWidth="200.0" />
       <Text fill="#6e8a52" layoutX="363.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V" wrappingWidth="24.3671875">
          <font>
             <Font name="Impact" size="64.0" />
@@ -30,7 +29,7 @@
             <Font name="Impact" size="62.0" />
          </font>
       </Text>
-      <Button fx:id="createGame" layoutX="544.0" layoutY="76.0" mnemonicParsing="false" onAction="#openCreateGame" style="-fx-background-color: gray;" text="Star new game" textFill="WHITE">
+      <Button fx:id="startNewGame" layoutX="544.0" layoutY="76.0" mnemonicParsing="false" onAction="#startNewGameButtonPressed" style="-fx-background-color: gray;" text="Star new game" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>

@@ -34,26 +34,28 @@ public class Battle {
    */
   public Army simulate() {
 
+    Army winningArmy = null;
+
     while (armyOne.hasUnits() && armyTwo.hasUnits()) {
       Unit unitOne = armyOne.getRandom();
       Unit unitTwo = armyTwo.getRandom();
 
-      while (unitTwo.getHealth() > 0 || unitOne.getHealth() > 0) {
-        unitOne.attack(unitTwo);
-        if (unitTwo.getHealth() <= 0) {
-          armyTwo.remove(unitTwo);
-        }
-        unitTwo.attack(unitOne);
-        if (unitOne.getHealth() <= 0) {
-          armyOne.remove(unitOne);
-        }
+      unitOne.attack(unitTwo);
+      if (unitTwo.getHealth() <= 0) {
+        armyTwo.remove(unitTwo);
       }
-      if (armyOne.getAllUnits().isEmpty()) {
-        return armyTwo;
-      } else if (armyTwo.getAllUnits().isEmpty()) {
-        return armyOne;
+      unitTwo.attack(unitOne);
+      if (unitOne.getHealth() <= 0) {
+        armyOne.remove(unitOne);
+      }
+
+      if (!armyOne.hasUnits()) {
+        winningArmy = armyTwo;
+      }
+      if (!armyTwo.hasUnits()) {
+        winningArmy = armyOne;
       }
     }
-    return null;
+    return winningArmy;
   }
 }
