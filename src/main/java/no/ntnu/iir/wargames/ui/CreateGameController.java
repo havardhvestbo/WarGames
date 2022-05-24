@@ -130,16 +130,25 @@ public class CreateGameController {
     this.armyDetailsScene = armyDetailsScene;
   }
 
+  private void alertForCheckedButton() {
+    Alert alertChecked = new Alert(Alert.AlertType.ERROR);
+    alertChecked.setTitle("Army not saved ");
+    alertChecked.setHeaderText(" Please save a full file before choosing terrain");
+    alertChecked.setContentText("Fill in text for army name and included troops. Plus whole positive number for values. ");
+    alertChecked.show();
+  }
   /**
    * Hills chosen when checkbox is chosen.
    */
   @FXML
   protected void hillsChecked() {
-    if(this.hills.isSelected()) {
+    try {this.hills.isSelected() ;
       this.forrest.setSelected(false);
       this.plains.setSelected(false);
       army1.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.HILL));
       army2.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.HILL));
+    } catch (NullPointerException n) {
+      alertForCheckedButton();
     }
   }
 
@@ -148,11 +157,13 @@ public class CreateGameController {
    */
   @FXML
   protected void forrestChecked() {
-    if(this.forrest.isSelected()) {
+    try {this.forrest.isSelected();
       this.hills.setSelected(false);
       this.plains.setSelected(false);
       army1.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.FOREST));
       army2.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.FOREST));
+    } catch (NullPointerException n) {
+      alertForCheckedButton();
     }
   }
 
@@ -161,11 +172,13 @@ public class CreateGameController {
    */
   @FXML
   protected void plainsChecked() {
-    if (this.forrest.isSelected()) {
+    try {this.plains.isSelected();
       this.hills.setSelected(false);
-      this.plains.setSelected(false);
+      this.forrest.setSelected(false);
       army1.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.PLAIN));
       army2.getAllUnits().forEach(unit -> unit.setTerrain(Terrain.PLAIN));
+    } catch (NullPointerException n) {
+      alertForCheckedButton();
     }
   }
 
@@ -194,14 +207,14 @@ public class CreateGameController {
       this.resultController.setArmy2(army2);
       this.resultController.getArmyName1();
       this.resultController.getArmyName2();
-     this.resultController.getBattleResult();
+      this.resultController.getBattleResult();
       this.resultController.getUnitsLeft1();
       this.resultController.getUnitsLeft2();
-    } catch (NumberFormatException e)  {
-      alertForWrongInput();
-    }
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.resultScene);
+  } catch (NumberFormatException e)  {
+    alertForWrongInput();
+  }
   }
 
   /**
@@ -255,8 +268,12 @@ public class CreateGameController {
    */
   @FXML
   protected void saveArmiesButtonPressed(ActionEvent actionEvent) {
-    createArmy1();
-    createArmy2();
+    try {
+      createArmy1();
+      createArmy2();
+    } catch (NumberFormatException e) {
+      alertForWrongInput();
+    }
   }
 
   /**
