@@ -286,6 +286,8 @@ public class CreateGameController {
     this.setScene(stage, this.armyDetailsScene);
     } catch (NullPointerException e) {
       alertForWrongInput();
+    } catch (IndexOutOfBoundsException e) {
+      alertForWrongInput();
     }
   }
 
@@ -310,6 +312,8 @@ public class CreateGameController {
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.armyDetailsScene);
     } catch (NullPointerException e) {
+      alertForWrongInput();
+    } catch (IndexOutOfBoundsException e) {
       alertForWrongInput();
     }
   }
