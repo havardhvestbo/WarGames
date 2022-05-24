@@ -24,8 +24,13 @@ public class Army {
    * @param armyName army's name.
    */
   public Army(String armyName) {
-    this.armyName = armyName;
-    this.units = new ArrayList<>();
+    if (armyName == null || armyName.isBlank()) {
+      throw new IllegalArgumentException("Invalid input.");
+    }
+    else {
+      this.armyName = armyName;
+    }
+      this.units = new ArrayList<>();
   }
 
   /**
@@ -35,8 +40,13 @@ public class Army {
    * @param units list of units in army.
    */
   public Army(String armyName, List<Unit> units) {
-    this.armyName = armyName;
-    this.units = units;
+    if (armyName == null || armyName.isBlank() || units == null) {
+      throw  new IllegalArgumentException("Invalid input.");
+    }
+    else {
+      this.armyName = armyName;
+      this.units = units;
+    }
   }
 
   /**

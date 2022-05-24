@@ -195,7 +195,7 @@ public class CreateGameController {
      this.resultController.getBattleResult();
       this.resultController.getUnitsLeft1();
       this.resultController.getUnitsLeft2();
-    }catch (ArrayIndexOutOfBoundsException e)  {
+    } catch (ArrayIndexOutOfBoundsException e)  {
       alertForWrongInput();
     }
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

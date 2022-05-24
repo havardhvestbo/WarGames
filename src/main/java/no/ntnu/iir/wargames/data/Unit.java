@@ -23,7 +23,7 @@ public abstract class Unit {
      * @param attack unit's attack
      * @param armor unit's armor.
      */
-    public Unit(String name, int health, int attack, int armor, Terrain terrain) {
+    protected Unit(String name, int health, int attack, int armor, Terrain terrain) {
         if (name == null || name.isBlank() || terrain == null || health <= 0) {
             throw new IllegalArgumentException("Wrong input in parameter");
         }
