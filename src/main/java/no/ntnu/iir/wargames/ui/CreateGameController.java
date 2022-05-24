@@ -1,5 +1,7 @@
 package no.ntnu.iir.wargames.ui;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ import javafx.stage.Stage;
 import no.ntnu.iir.wargames.data.Army;
 import no.ntnu.iir.wargames.data.Terrain;
 import no.ntnu.iir.wargames.data.Unit;
+import no.ntnu.iir.wargames.service.FileHandler;
 import no.ntnu.iir.wargames.service.UnitFactory;
 import no.ntnu.iir.wargames.service.UnitType;
 
@@ -130,6 +133,33 @@ public class CreateGameController {
     this.armyDetailsScene = armyDetailsScene;
   }
 
+
+  /**
+   * Change the scene in a stage.
+   *
+   * @param stage stage for scene.
+   * @param newScene new scene.
+   */
+  private void setScene(Stage stage, Scene newScene) {
+    stage.hide();
+    stage.setScene(newScene);
+    stage.show();
+  }
+
+  /**
+   * Alert for wrong input in text areas and text fields.
+   */
+  private void alertForWrongInput() {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Wrong input. ");
+    alert.setHeaderText("One or more of the inputs are wrong. ");
+    alert.setContentText("Check if health and number of units are a positive integer (no decimal) and contains no text (String) .  ");
+    alert.show();
+  }
+
+  /**
+   * Alert for terrain type buttons.
+   */
   private void alertForCheckedButton() {
     Alert alertChecked = new Alert(Alert.AlertType.ERROR);
     alertChecked.setTitle("Army not saved ");
@@ -137,6 +167,7 @@ public class CreateGameController {
     alertChecked.setContentText("Fill in text for army name and included troops. Plus whole positive number for values. ");
     alertChecked.show();
   }
+
   /**
    * Hills chosen when checkbox is chosen.
    */
@@ -182,15 +213,9 @@ public class CreateGameController {
     }
   }
 
-  /**
-   * Alert for wrong input in text areas and text fields.
-   */
-  private void alertForWrongInput() {
-    Alert alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Wrong input. ");
-    alert.setHeaderText("One or more of the inputs are wrong. ");
-    alert.setContentText("Check if health and number of units are a positive integer (no decimal) and contains no text (String) .  ");
-    alert.show();
+  @FXML
+  protected void SaveArmy1Button(ActionEvent actionEvent) throws FileNotFoundException {
+    FileReader fileReader = new FileReader(army1.getArmyName());
   }
 
   /**
@@ -214,7 +239,9 @@ public class CreateGameController {
     this.setScene(stage, this.resultScene);
   } catch (NumberFormatException e)  {
     alertForWrongInput();
-  }
+  } catch (IllegalArgumentException e) {
+      alertForWrongInput();
+    }
   }
 
   /**
@@ -224,7 +251,7 @@ public class CreateGameController {
    */
   @FXML
   protected void armyDetailsButton1Pressed(ActionEvent actionEvent) {
-    this.armyDetailsController.setArmy1(army1);
+    try {this.armyDetailsController.setArmy1(army1);
     this.armyDetailsController.getArmyName1();
     this.armyDetailsController.getInfantryUnitName1();
     this.armyDetailsController.getCavalryUnitName1();
@@ -237,6 +264,9 @@ public class CreateGameController {
 
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.armyDetailsScene);
+    } catch (NullPointerException e) {
+      alertForWrongInput();
+    }
   }
 
   /**
@@ -246,7 +276,7 @@ public class CreateGameController {
    */
   @FXML
   protected void armyDetailsButton2Pressed(ActionEvent actionEvent) {
-    this.armyDetailsController.setArmy2(army2);
+    try {this.armyDetailsController.setArmy2(army2);
     this.armyDetailsController.getArmyName2();
     this.armyDetailsController.getInfantryUnitName2();
     this.armyDetailsController.getCavalryUnitName2();
@@ -259,6 +289,9 @@ public class CreateGameController {
 
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.armyDetailsScene);
+    } catch (NullPointerException e) {
+      alertForWrongInput();
+    }
   }
 
   /**
@@ -273,21 +306,10 @@ public class CreateGameController {
       createArmy2();
     } catch (NumberFormatException e) {
       alertForWrongInput();
+    } catch (IllegalArgumentException e) {
+      alertForWrongInput();
     }
   }
-
-  /**
-   * Change the scene in a stage.
-   *
-   * @param stage stage for scene.
-   * @param newScene new scene.
-   */
-  private void setScene(Stage stage, Scene newScene) {
-    stage.hide();
-    stage.setScene(newScene);
-    stage.show();
-  }
-
 
   /**
    * Creates an army with values based on user's input.

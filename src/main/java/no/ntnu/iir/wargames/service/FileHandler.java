@@ -11,7 +11,7 @@ import no.ntnu.iir.wargames.data.Unit;
  *
  *
  */
-public class ArmyFile {
+public class FileHandler {
   public static void main(String[] args) throws URISyntaxException, IOException {
     fileReader("Human-Army");
   }
@@ -37,7 +37,6 @@ public class ArmyFile {
     } catch (IOException e) {
       throw e;
     }
-
   }
 
   /**
