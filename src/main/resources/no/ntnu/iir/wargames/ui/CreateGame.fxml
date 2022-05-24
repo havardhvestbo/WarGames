@@ -24,8 +24,8 @@
                   <Text layoutX="117.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
                   <Text layoutX="116.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
                   <Text layoutX="104.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
-                  <Button fx:id="loadExistingArmy1" layoutX="98.0" layoutY="540.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
-                  <Button fx:id="saveArmy1" layoutX="109.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
+                  <Button fx:id="loadExistingArmy1" layoutX="98.0" layoutY="540.0" mnemonicParsing="false" onAction="#loadFileArmy1ButtonPressed" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button fx:id="saveArmy1" layoutX="109.0" layoutY="485.0" mnemonicParsing="false" onAction="#loadArmy1Button" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
                   <TextField fx:id="nameInfantryUnit1" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
                   <TextField fx:id="nameCavalryUnit1" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
                   <TextField fx:id="nameRangedUnit1" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
@@ -54,8 +54,8 @@
                   <Text layoutX="117.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
                   <Text layoutX="116.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
                   <Text layoutX="104.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
-                  <Button fx:id="loadExistingArmy2" layoutX="94.0" layoutY="539.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
-                  <Button fx:id="saveArmy2" layoutX="105.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
+                  <Button fx:id="loadExistingArmy2" layoutX="94.0" layoutY="539.0" mnemonicParsing="false" onAction="#loadFileArmy2ButtonPressed" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button fx:id="saveArmy2" layoutX="105.0" layoutY="485.0" mnemonicParsing="false" onAction="#loadArmy2Button" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
                   <TextField fx:id="nameInfantryUnit2" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
                   <TextField fx:id="nameCavalryUnit2" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
                   <TextField fx:id="nameRangedUnit2" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />

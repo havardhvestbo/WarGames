@@ -2,6 +2,7 @@ package no.ntnu.iir.wargames.ui;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import no.ntnu.iir.wargames.data.Army;
+import no.ntnu.iir.wargames.data.CavalryUnit;
 import no.ntnu.iir.wargames.data.Terrain;
 import no.ntnu.iir.wargames.data.Unit;
 import no.ntnu.iir.wargames.service.FileHandler;
@@ -213,11 +215,29 @@ public class CreateGameController {
     }
   }
 
+  /**
+   * Save a army.
+   *
+   * @param actionEvent event
+   * @throws FileNotFoundException
+   */
   @FXML
-  protected void SaveArmy1Button(ActionEvent actionEvent) throws FileNotFoundException {
-    FileReader fileReader = new FileReader(army1.getArmyName());
+  protected void loadArmy1Button(ActionEvent actionEvent) throws FileNotFoundException {
+   FileHandler fileHandler = new FileHandler();
+   fileHandler.saveFile(army1,army1.getArmyName());
   }
 
+  /**
+   * Save a Army.
+   *
+   * @param actionEvent
+   * @throws FileNotFoundException
+   */
+  @FXML
+  protected void  loadArmy2Button(ActionEvent actionEvent) throws FileNotFoundException {
+    FileHandler fileHandler = new FileHandler();
+    fileHandler.saveFile(army2, army2.getArmyName());
+  }
   /**
    * Changes scene and sets the next scene based on input form user.
    *
@@ -292,6 +312,50 @@ public class CreateGameController {
     } catch (NullPointerException e) {
       alertForWrongInput();
     }
+  }
+
+  /**
+   * Load in an army file.
+   */
+  @FXML
+  protected void loadFileArmy1ButtonPressed() {
+      FileHandler fileHandler = new FileHandler();
+      army1 = fileHandler.loadFile("Human-Army.csv");
+      armyName1.setText(army1.getArmyName());
+      nameInfantryUnit1.setText(army1.getInfantryUnits().get(0).getName());
+      nameCavalryUnit1.setText(army1.getCavalryUnits().get(0).getName());
+      nameRangedUnit1.setText(army1.getRangedUnits().get(0).getName());
+      nameCommanderUnit1.setText(army1.getCommanderUnits().get(0).getName());
+      healthInfantryUnits1.setText("" + army1.getInfantryUnits().get(0).getHealth());
+      healthCavalryUnits1.setText("" + army1.getCavalryUnits().get(0).getHealth());
+      healthRangedUnits1.setText("" + army1.getRangedUnits().get(0).getHealth());
+      healthCommanderUnits1.setText("" + army1.getCommanderUnits().get(0).getHealth());
+      numUnitsInfantryUnits1.setText("" + army1.getInfantryUnits().size());
+      numUnitsCavalryUnits1.setText("" + army1.getCavalryUnits().size());
+      numUnitsRangedUnit1.setText("" + army1.getRangedUnits().size());
+      numUnitsCommanderUnit1.setText("" + army1.getCommanderUnits().size());
+  }
+
+  /**
+   * Load in an army file.
+   */
+  @FXML
+  protected void loadFileArmy2ButtonPressed() {
+    FileHandler fileHandler = new FileHandler();
+    army2 = fileHandler.loadFile("Orcish-Horde.csv");
+    armyName2.setText(army2.getArmyName());
+    nameInfantryUnit2.setText(army2.getInfantryUnits().get(0).getName());
+    nameCavalryUnit2.setText(army2.getCavalryUnits().get(0).getName());
+    nameRangedUnit2.setText(army2.getRangedUnits().get(0).getName());
+    nameCommanderUnit2.setText(army2.getCommanderUnits().get(0).getName());
+    healthInfantryUnits2.setText("" + army2.getInfantryUnits().get(0).getHealth());
+    healthCavalryUnits2.setText("" + army2.getCavalryUnits().get(0).getHealth());
+    healthRangedUnits2.setText("" + army2.getRangedUnits().get(0).getHealth());
+    healthCommanderUnits2.setText("" + army2.getCommanderUnits().get(0).getHealth());
+    numUnitsInfantryUnits2.setText("" + army2.getInfantryUnits().size());
+    numUnitsCavalryUnits2.setText("" + army2.getCavalryUnits().size());
+    numUnitsRangedUnit2.setText("" + army2.getRangedUnits().size());
+    numUnitsCommanderUnit2.setText("" + army2.getCommanderUnits().size());
   }
 
   /**

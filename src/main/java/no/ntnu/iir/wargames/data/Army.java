@@ -59,6 +59,15 @@ public class Army {
   }
 
   /**
+   * Changes army name.
+   *
+   * @param armyName new army name;
+   */
+  public void setArmyName(String armyName) {
+    this.armyName = armyName;
+  }
+
+  /**
    * Adds a unit to list units
    *
    * @param unit to add to list units.
