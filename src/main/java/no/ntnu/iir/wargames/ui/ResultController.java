@@ -14,11 +14,17 @@ import javafx.stage.Stage;
 import no.ntnu.iir.wargames.data.Army;
 import no.ntnu.iir.wargames.simulation.Battle;
 
+/**
+ * Controller for the result page.
+ * Linked to the FXML-file representing the view of MVC of JavaFx FXML.
+ *
+ * @author Håvard H. Vestbø
+ * @version 1.0
+ */
 public class ResultController implements Initializable {
 
   private Army army1;
   private Army army2;
-
 
   @FXML
   private Scene createGameScene;
@@ -35,60 +41,98 @@ public class ResultController implements Initializable {
   @FXML
   private TextField result;
 
+  /**
+   * Set a scene for CreateGame.fxml in current class.
+   *
+   * @param createGameScene createGame's scene.
+   */
   public void setCreateGameScene(Scene createGameScene) {
     this.createGameScene = createGameScene;
   }
 
+  /**
+   * Changes scene when button is pressed.
+   *
+   * @param actionEvent when button is pressed.
+   */
   @FXML
   protected void startNewGameButtonPressed(ActionEvent actionEvent) {
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.createGameScene);
   }
 
+  /**
+   * Change the scene in a stage.
+   *
+   * @param stage stage for scene.
+   * @param newScene new scene.
+   */
   private void setScene(Stage stage, Scene newScene) {
     stage.hide();
     stage.setScene(newScene);
     stage.show();
   }
 
+  /**
+   * Sets Army
+   *
+   * @param army1 overwrite army.
+   */
   public void setArmy1(Army army1){
     this.army1 = army1;
   }
 
+  /**
+   * Sets Army
+   *
+   * @param army2 overwrite army.
+   */
   public void setArmy2(Army army2){
     this.army2 = army2;
   }
 
+  /**
+   * Sets text to army's name.
+   */
   public void getArmyName1() {
     this.army1Name.setText(army1.getArmyName());
   }
 
+  /**
+   * Sets text to army's name.
+   */
   public void getArmyName2() {
     this.army2Name.setText(army2.getArmyName());
   }
-
+  /**
+   * Sets text to battle's winner.
+   */
   public void getBattleResult() {
     Battle battle = new Battle(army1, army2);
-    this.result.setText("The winner of the grand war is "+ battle.simulate().getArmyName()+ " !");
+    this.result.setText("The winner of the epic war is "+ battle.simulate().getArmyName()+ " !");
   }
 
+  /**
+   * Sets text to number remaining units.
+   */
   public void getUnitsLeft1() {
       this.army1Result.setText(
-          "There are  " + army1.getInfantryUnits().size() + " infantry units left" +
-              "\n " + "There are " + army1.getCavalryUnits().size() + " cavalry units left" +
-              "\n " + "There are " + army1.getRangedUnits().size() + " ranged units left" +
-              "\n" + "There are " + army1.getCommanderUnits().size() + " commander units left" );
+          "There are  " + army1.getInfantryUnits().size() + " infantry units left." +
+              "\n" + "There are " + army1.getCavalryUnits().size() + " cavalry units left." +
+              "\n" + "There are " + army1.getRangedUnits().size() + " ranged units left." +
+              "\n" + "There are " + army1.getCommanderUnits().size() + " commander units left." );
     }
 
+  /**
+   * Sets text to number remaining units.
+   */
   public void getUnitsLeft2() {
     this.army2Result.setText(
-        army2.getInfantryUnits().size() + " " + army2.getInfantryUnits().get(0).getName() +
-            "\n " + "There are " + army2.getCavalryUnits().size() + " " + army2.getCavalryUnits().get(0).getName() +
-            "\n " + army2.getRangedUnits().size() + " " + army2.getRangedUnits().get(0).getName() +
-            "\n" + army2.getCommanderUnits().size() + " " + army2.getCommanderUnits().get(0).getName());
+        "There are " + army2.getInfantryUnits().size() +  " infantry units left." +
+            "\n" + "There are " + army2.getCavalryUnits().size() + " cavalry units left."  +
+            "\n" + "There are " + army2.getRangedUnits().size() + " ranged units left." +
+            "\n" +  "There are " + army2.getCommanderUnits().size() + " commander units left");
   }
-
-
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {

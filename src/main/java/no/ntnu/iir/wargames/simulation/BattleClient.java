@@ -17,40 +17,40 @@ import no.ntnu.iir.wargames.data.Terrain;
 public class BattleClient {
 
   public static void main(String[] args) {
-    Army armyOne = new Army("Human Army");
-    Army armyTwo = new Army("Orcish horde");
+    Army army1 = new Army("Human Army");
+    Army army2 = new Army("Orcish horde");
     Terrain terrain = Terrain.HILL;
     for (int i = 0; i<500; i++){
       InfantryUnit unit = new InfantryUnit("Footman", 100, terrain);
-      armyOne.add(unit);
+      army1.add(unit);
     }
     for (int i = 0; i<100; i++) {
       CavalryUnit unit = new CavalryUnit("Knight", 100, terrain);
-      armyOne.add(unit);
+      army1.add(unit);
     }
     for (int i = 0; i<200; i++) {
       RangedUnit unit = new RangedUnit("Archer", 100, terrain);
-      armyOne.add(unit);
+      army1.add(unit);
     }
     CommanderUnit unit = new CommanderUnit("Mountain King", 180, terrain);
-    armyOne.add(unit);
+    army1.add(unit);
 
     for (int i = 0; i<500; i++) {
       InfantryUnit unitTwo = new InfantryUnit("Grunt", 100, terrain);
-      armyTwo.add(unitTwo);
+      army2.add(unitTwo);
     }
     for (int i = 0; i<100; i++) {
       CavalryUnit unitTwo = new CavalryUnit("Raider", 100, terrain);
-      armyTwo.add(unitTwo);
+      army2.add(unitTwo);
     }
     for (int i = 0; i<200; i++) {
       RangedUnit unitTwo = new RangedUnit("Spearman", 100, terrain);
-      armyTwo.add(unitTwo);
+      army2.add(unitTwo);
     }
     CommanderUnit unitTwo = new CommanderUnit("Gul´dan", 180, terrain);
-    armyTwo.add(unitTwo);
+    army2.add(unitTwo);
 
-    Battle battle = new Battle(armyOne, armyTwo);
+    Battle battle = new Battle(army1, army2);
     Army winningArmy = battle.simulate();
     System.out.println("Winner is :" + winningArmy.toString());
   }

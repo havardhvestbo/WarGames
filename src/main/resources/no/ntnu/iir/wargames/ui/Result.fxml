@@ -14,19 +14,19 @@
             <Font name="Impact" size="37.0" />
          </font>
       </Text>
-      <TextField fx:id="army1Name" layoutX="56.0" layoutY="194.0" onAction="#getArmyName1" prefHeight="26.0" prefWidth="200.0" />
-      <TextField fx:id="army2Name" layoutX="519.0" layoutY="194.0" onAction="#getArmyName2" prefHeight="26.0" prefWidth="200.0" />
+      <TextField fx:id="army1Name" layoutX="56.0" layoutY="194.0" prefHeight="26.0" prefWidth="200.0" />
+      <TextField fx:id="army2Name" layoutX="519.0" layoutY="194.0" prefHeight="26.0" prefWidth="200.0" />
       <TextArea fx:id="army1Result" layoutX="56.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="result" layoutX="56.0" layoutY="518.0" onAction="#getBattleResult" prefHeight="26.0" prefWidth="663.0" />
+      <TextField fx:id="result" layoutX="56.0" layoutY="518.0" prefHeight="26.0" prefWidth="663.0" />
       <TextArea fx:id="army2Result" layoutX="519.0" layoutY="261.0" prefHeight="200.0" prefWidth="200.0" />
       <Text fill="#6e8a52" layoutX="363.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V" wrappingWidth="24.3671875">
          <font>
-            <Font name="Impact" size="64.0" />
+            <Font name="Impact" size="96.0" />
          </font>
       </Text>
-      <Text fill="#797269" layoutX="385.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s">
+      <Text fill="#797269" layoutX="396.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s">
          <font>
-            <Font name="Impact" size="62.0" />
+            <Font name="Impact" size="86.0" />
          </font>
       </Text>
       <Button fx:id="startNewGame" layoutX="544.0" layoutY="76.0" mnemonicParsing="false" onAction="#startNewGameButtonPressed" style="-fx-background-color: gray;" text="Star new game" textFill="WHITE">

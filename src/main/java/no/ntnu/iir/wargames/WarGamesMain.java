@@ -4,6 +4,9 @@ import no.ntnu.iir.wargames.ui.WarGamesApp;
 
 /**
  * The main starting point for the application.
+ *
+ * @author Håvard H. Vestbø
+ * @version 1.0
  */
 public class WarGamesMain {
   /**

@@ -18,10 +18,10 @@ public abstract class Unit {
     /**
      * Creates an instance of a Unit.
      *
-     * @param name
-     * @param health
-     * @param attack
-     * @param armor
+     * @param name unit' name.
+     * @param health unit's health.
+     * @param attack unit's attack
+     * @param armor unit's armor.
      */
     public Unit(String name, int health, int attack, int armor, Terrain terrain) {
         if (name == null || name.isBlank() || terrain == null || health <= 0) {

@@ -19,38 +19,27 @@
                         <Font name="Apple Braille" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="armyDetails1" layoutX="112.0" layoutY="64.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Army Details" textFill="WHITE" />
-                  <Text layoutX="117.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry Units:" />
-                  <Text layoutX="117.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
-                  <Text layoutX="117.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
-                  <Text layoutX="107.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
-                  <Button fx:id="loadExistingArmy1" layoutX="95.0" layoutY="543.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
-                  <Button fx:id="saveArmy1" layoutX="117.0" layoutY="486.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army" textFill="WHITE" />
-                  <TextField fx:id="nameInfantryUnit1" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="66.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="152.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="221.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <TextField fx:id="nameCavalryUnit1" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="nameRangedUnit1" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="nameCommanderUnit1" layoutX="27.0" layoutY="445.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="66.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="62.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="68.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="149.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="149.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="149.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="220.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <Text layoutX="216.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <Text layoutX="217.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <TextField fx:id="armyName1" layoutX="155.0" layoutY="27.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="healthInfantryUnits1" layoutX="135.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsInfantryUnits1" layoutX="208.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthCavalryUnits1" layoutX="135.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsCavalryUnits1" layoutX="207.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthRangedUnits1" layoutX="133.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsRangedUnit1" layoutX="207.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthCommanderUnits1" layoutX="135.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsCommanderUnit1" layoutX="208.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" />
+                  <Button fx:id="armyDetails1" layoutX="112.0" layoutY="78.0" mnemonicParsing="false" onAction="#armyDetailsButton1Pressed" style="-fx-background-color: gray;" text="Army Details" textFill="WHITE" />
+                  <Text layoutX="120.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry Units:" />
+                  <Text layoutX="117.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
+                  <Text layoutX="116.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
+                  <Text layoutX="104.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
+                  <Button fx:id="loadExistingArmy1" layoutX="98.0" layoutY="540.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button fx:id="saveArmy1" layoutX="109.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
+                  <TextField fx:id="nameInfantryUnit1" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameCavalryUnit1" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameRangedUnit1" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameCommanderUnit1" layoutX="27.0" layoutY="445.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="armyName1" layoutX="155.0" layoutY="27.0" prefHeight="26.0" prefWidth="102.0" promptText="army name" />
+                  <TextField fx:id="healthInfantryUnits1" layoutX="135.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsInfantryUnits1" layoutX="208.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <TextField fx:id="healthCavalryUnits1" layoutX="135.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsCavalryUnits1" layoutX="207.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <TextField fx:id="healthRangedUnits1" layoutX="133.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsRangedUnit1" layoutX="207.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <TextField fx:id="healthCommanderUnits1" layoutX="135.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsCommanderUnit1" layoutX="208.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <Text layoutX="42.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NB! save arimies before viewing army details" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -60,38 +49,27 @@
                         <Font name="Apple Braille" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="armyDetails2" layoutX="112.0" layoutY="64.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Army Details" textFill="WHITE" />
-                  <Text layoutX="117.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry Units:" />
-                  <Text layoutX="117.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
-                  <Text layoutX="117.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
-                  <Text layoutX="107.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
-                  <Button fx:id="loadExistingArmy2" layoutX="95.0" layoutY="544.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
-                  <Button fx:id="saveArmy2" layoutX="118.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army" textFill="WHITE" />
-                  <TextField fx:id="nameInfantryUnit2" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="66.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="152.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="221.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <TextField fx:id="nameCavalryUnit2" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="nameRangedUnit2" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="nameCommanderUnit2" layoutX="27.0" layoutY="445.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="66.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="62.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="68.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Text layoutX="149.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="149.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="149.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-                  <Text layoutX="220.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <Text layoutX="216.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <Text layoutX="217.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. units" />
-                  <TextField fx:id="armyName2" layoutX="147.0" layoutY="26.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField fx:id="healthInfantryUnits2" layoutX="135.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsInfantryUnits2" layoutX="208.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthCavalryUnits2" layoutX="135.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsCavalryUnits2" layoutX="208.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthRangedUnits2" layoutX="135.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsRangedUnit2" layoutX="208.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="healthCommanderUnits2" layoutX="135.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" />
-                  <TextField fx:id="numUnitsCommanderUnit2" layoutX="208.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" />
+                  <Button fx:id="armyDetails2" layoutX="111.0" layoutY="85.0" mnemonicParsing="false" onAction="#armyDetailsButton2Pressed" style="-fx-background-color: gray;" text="Army Details" textFill="WHITE" />
+                  <Text layoutX="117.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Infantry Units:" />
+                  <Text layoutX="117.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cavalry Units:" />
+                  <Text layoutX="116.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranged Units:" />
+                  <Text layoutX="104.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commander Units:" />
+                  <Button fx:id="loadExistingArmy2" layoutX="94.0" layoutY="539.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Load existing army" textFill="WHITE" />
+                  <Button fx:id="saveArmy2" layoutX="105.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Save Army File" textFill="WHITE" />
+                  <TextField fx:id="nameInfantryUnit2" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameCavalryUnit2" layoutX="27.0" layoutY="247.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameRangedUnit2" layoutX="27.0" layoutY="349.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="nameCommanderUnit2" layoutX="27.0" layoutY="445.0" prefHeight="26.0" prefWidth="102.0" promptText="name" />
+                  <TextField fx:id="armyName2" layoutX="147.0" layoutY="26.0" prefHeight="26.0" prefWidth="102.0" promptText="army name" />
+                  <TextField fx:id="healthInfantryUnits2" layoutX="135.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsInfantryUnits2" layoutX="208.0" layoutY="163.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <TextField fx:id="healthCavalryUnits2" layoutX="135.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsCavalryUnits2" layoutX="208.0" layoutY="247.0" prefHeight="26.0" prefWidth="70.0" promptText="nr. units" />
+                  <TextField fx:id="healthRangedUnits2" layoutX="135.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsRangedUnit2" layoutX="208.0" layoutY="349.0" prefHeight="26.0" prefWidth="70.0" promptText="nr units" />
+                  <TextField fx:id="healthCommanderUnits2" layoutX="135.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" promptText="health" />
+                  <TextField fx:id="numUnitsCommanderUnit2" layoutX="208.0" layoutY="445.0" prefHeight="26.0" prefWidth="70.0" promptText="nr units" />
+                  <Text layoutX="38.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NB! save armies before viewing army details" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="69.0">
@@ -101,9 +79,14 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <CheckBox fx:id="hills" layoutX="47.0" layoutY="171.0" mnemonicParsing="false" style="-fx-: 5;" text="Hills" />
-                  <CheckBox fx:id="forrest" layoutX="47.0" layoutY="257.0" mnemonicParsing="false" style="-fx-: 5;" text="Forrest" />
-                  <CheckBox fx:id="plains" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" style="-fx-: 5;" text="Plains" />
+                  <CheckBox fx:id="hills" layoutX="47.0" layoutY="171.0" mnemonicParsing="false" onAction="#hillsChecked" style="-fx-: 5;" text="Hills" />
+                  <CheckBox fx:id="forrest" layoutX="47.0" layoutY="257.0" mnemonicParsing="false" onAction="#forrestChecked" style="-fx-: 5;" text="Forrest" />
+                  <CheckBox fx:id="plains" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#plainsChecked" style="-fx-: 5;" text="Plains" />
+                  <Button fx:id="saveArmies" layoutX="18.0" layoutY="456.0" mnemonicParsing="false" onAction="#saveArmiesButtonPressed" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: gray;" text="Save armies" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
         </items>

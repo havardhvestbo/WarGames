@@ -4,18 +4,24 @@ import java.io.*;
 import java.net.URISyntaxException;
 import java.util.List;
 import no.ntnu.iir.wargames.data.Army;
-import no.ntnu.iir.wargames.data.CavalryUnit;
-import no.ntnu.iir.wargames.data.CommanderUnit;
-import no.ntnu.iir.wargames.data.InfantryUnit;
-import no.ntnu.iir.wargames.data.RangedUnit;
-import no.ntnu.iir.wargames.data.Terrain;
 import no.ntnu.iir.wargames.data.Unit;
 
+/**
+ * A class handling the files of armies. Writing and reading
+ *
+ *
+ */
 public class ArmyFile {
   public static void main(String[] args) throws URISyntaxException, IOException {
     fileReader("Human-Army");
   }
 
+  /**
+   * A file reader to read existing csv files (saves) and load into the game.
+   *
+   * @param armyName file/army name.
+   * @throws IOException
+   */
   public static void fileReader(String armyName) throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader( armyName + ".csv"))) {
       String line;
@@ -34,6 +40,12 @@ public class ArmyFile {
 
   }
 
+  /**
+   * A file writer to save current csv files in the game.
+   *
+   * @param army army to save
+   * @throws IOException
+   */
   public static void fileWriter(Army army) throws IOException {
     List<Unit> units = army.getAllUnits();
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(army.getArmyName()+ ".csv"))){
@@ -48,28 +60,4 @@ public class ArmyFile {
       throw e;
     }
   }
-
-  private void test() throws IOException {
-    File file = new File("ArmyFile.csv");
-
-    if (!file.isFile()) {
-      file.createNewFile();
-    }
-
-    System.out.println(file.isFile());
-
-    fileReader("ArmyFile");
-  }
-
-  private static void testFileWriting() throws IOException {
-    Army army = new Army("Human Army");
-    Terrain terrain = Terrain.TEST;
-    army.add(new InfantryUnit("Footman", 100, terrain));
-    army.add(new CavalryUnit("Knight",100, terrain));
-    army.add(new RangedUnit("Archer",100, terrain));
-    army.add(new CommanderUnit("Mountain King", 180, terrain));
-
-    fileWriter(army);
-  }
-
 }

@@ -19,9 +19,9 @@ public class Army {
   private List<Unit> units;
 
   /**
-   * Creates an instance of Army
+   * Simplified constructor of Army.
    *
-   * @param armyName
+   * @param armyName army's name.
    */
   public Army(String armyName) {
     this.armyName = armyName;
@@ -31,8 +31,8 @@ public class Army {
   /**
    * Creates an instance of Army.
    *
-   * @param armyName
-   * @param units
+   * @param armyName army's name.
+   * @param units list of units in army.
    */
   public Army(String armyName, List<Unit> units) {
     this.armyName = armyName;
@@ -40,9 +40,9 @@ public class Army {
   }
 
   /**
-   * Returns a string of the Army´s name
+   * Returns a string of the Army´s name.
    *
-   * @return armyName
+   * @return armyName army's name.
    */
   public String getArmyName() {
     return armyName;
@@ -51,7 +51,7 @@ public class Army {
   /**
    * Adds a unit to list units
    *
-   * @param unit
+   * @param unit to add to list units.
    */
   public void add(Unit unit) {
     this.units.add(unit);
@@ -60,7 +60,7 @@ public class Army {
   /**
    * Adds a list of units to list units.
    *
-   * @param unitList
+   * @param unitList list of units to add to list units.
    */
   public void addAll(List<Unit> unitList) {
     this.units.addAll(unitList);
@@ -69,7 +69,7 @@ public class Army {
   /**
    * Removes a unit from list units.
    *
-   * @param unit
+   * @param unit to remove from list.
    */
   public void remove(Unit unit) {
     this.units.remove(unit);
@@ -90,7 +90,7 @@ public class Army {
   /**
    * Returns every unit in the list units.
    *
-   * @return all units
+   * @return all units in list units.
    */
   public List<Unit> getAllUnits() {
     return units;
@@ -99,7 +99,7 @@ public class Army {
   /**
    * Returns a random unit from list units.
    *
-   * @return random unit
+   * @return random unit from list units.
    */
   public Unit getRandom() {
     Random rand = new Random();
@@ -131,9 +131,9 @@ public class Army {
   }
 
   /**
-   * Return units of type infantryUnit to a List
+   * Return units of type infantryUnit to a List.
    *
-   * @return List containing infantryUnits
+   * @return List containing infantryUnits.
    */
   public List<Unit> getInfantryUnits() {
     return this.units.stream()
@@ -142,9 +142,9 @@ public class Army {
   }
 
   /**
-   * Return units of type cavalryUnit to a List
+   * Return units of type cavalryUnit to a List.
    *
-   * @return List containing infantryUnits
+   * @return List containing infantryUnits.
    */
   public List<Unit> getCavalryUnits() {
     return this.units.stream()
@@ -152,12 +152,22 @@ public class Army {
         .collect(Collectors.toList());
   }
 
+  /**
+   * Return units of type rangedUnit to a List.
+   *
+   * @return List containing rangedUnits.
+   */
   public List<Unit> getRangedUnits() {
     return this.units.stream()
         .filter(unit -> unit.getClass().equals(RangedUnit.class))
         .collect(Collectors.toList());
   }
 
+  /**
+   * Return units of type commanderUnit to a List.
+   *
+   * @return List containing commanderUnits.
+   */
   public List<Unit> getCommanderUnits() {
     return this.units.stream()
         .filter(unit -> unit.getClass().equals(CommanderUnit.class))

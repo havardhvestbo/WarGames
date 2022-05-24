@@ -11,19 +11,23 @@ public class CavalryUnit extends Unit {
   private int numAttacks = 0;
 
   /**
-   * Creates an instance of CavalryUnit
-   * @param name
-   * @param health
-   * @param attack
-   * @param armor
+   * Creates an instance of CavalryUnit.
+   *
+   * @param name unit's name.
+   * @param health unit's health.
+   * @param attack unit's attack.
+   * @param armor unit's armor.
+   * @param terrain unit's terrain.
    */
   public CavalryUnit(String name, int health, int attack, int armor, Terrain terrain) {
     super(name, health, attack, armor, terrain);
   }
   /**
-   * Creates an instance of CavalryUnit with attack and armor.
-   * @param name
-   * @param health
+   * Simplified constructor of CavalryUnit with set attack and armor.
+   *
+   * @param name unit's name.
+   * @param health unit's health.
+   * @param terrain unit's Terrain.
    */
   public CavalryUnit(String name, int health, Terrain terrain) {
     super(name, health, 20, 12, terrain);

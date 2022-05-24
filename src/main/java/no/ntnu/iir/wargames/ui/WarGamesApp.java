@@ -10,6 +10,9 @@ import javafx.stage.Stage;
  * A War game application. The application lets the player create a game between two armies.
  * The player can choose to load a file of an already existing army or create a army in the GUI.
  * When the player starts the battle, the GUI returns the winner and the remaining units.
+ *
+ * @author Håvard H. Vestbø
+ * @version 1.0
  */
 public class WarGamesApp extends Application {
 
@@ -49,6 +52,9 @@ public class WarGamesApp extends Application {
       this.resultController.setCreateGameScene(this.createGameScene);
       this.createGameController.setResultScene(this.resultScene);
       this.createGameController.setResultController(this.resultController);
+      this.armyDetailsController.setCreateGameScene(this.createGameScene);
+      this.createGameController.setArmyDetailsController(this.armyDetailsController);
+      this.createGameController.setArmyDetailsScene(this.armyDetailsScene);
 
       stage.setTitle("War Games");
       stage.setScene(frontPageScene);

@@ -12,19 +12,19 @@ import no.ntnu.iir.wargames.data.Unit;
 
 public class Battle {
 
-  private Army armyOne;
-  private Army armyTwo;
+  private Army army1;
+  private Army army2;
 
   /**
    * Constructing the battle between the armies.
    *
-   * @param armyOne
-   * @param armyTwo
+   * @param army1
+   * @param army2
    */
-  public Battle(Army armyOne, Army armyTwo) {
+  public Battle(Army army1, Army army2) {
 
-    this.armyOne = armyOne;
-    this.armyTwo = armyTwo;
+    this.army1 = army1;
+    this.army2 = army2;
   }
 
   /**
@@ -36,24 +36,24 @@ public class Battle {
 
     Army winningArmy = null;
 
-    while (armyOne.hasUnits() && armyTwo.hasUnits()) {
-      Unit unitOne = armyOne.getRandom();
-      Unit unitTwo = armyTwo.getRandom();
+    while (army1.hasUnits() && army2.hasUnits()) {
+      Unit unitOne = army1.getRandom();
+      Unit unitTwo = army2.getRandom();
 
       unitOne.attack(unitTwo);
       if (unitTwo.getHealth() <= 0) {
-        armyTwo.remove(unitTwo);
+        army2.remove(unitTwo);
       }
       unitTwo.attack(unitOne);
       if (unitOne.getHealth() <= 0) {
-        armyOne.remove(unitOne);
+        army1.remove(unitOne);
       }
 
-      if (!armyOne.hasUnits()) {
-        winningArmy = armyTwo;
+      if (!army1.hasUnits()) {
+        winningArmy = army2;
       }
-      if (!armyTwo.hasUnits()) {
-        winningArmy = armyOne;
+      if (!army2.hasUnits()) {
+        winningArmy = army1;
       }
     }
     return winningArmy;

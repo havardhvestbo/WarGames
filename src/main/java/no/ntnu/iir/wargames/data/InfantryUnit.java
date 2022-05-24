@@ -12,10 +12,11 @@ public class InfantryUnit extends Unit {
   /**
    * Creates an instance of InfantryUnit
    *
-   * @param name
-   * @param health
-   * @param attack
-   * @param armor
+   * @param name unit's name.
+   * @param health unit's health.
+   * @param attack unit's attack.
+   * @param armor unit's armor.
+   * @param terrain unit's terrain.
    */
   public InfantryUnit(String name, int health, int attack, int armor, Terrain terrain) {
     super(name, health, attack, armor, terrain);
@@ -24,8 +25,9 @@ public class InfantryUnit extends Unit {
   /**
    * Creates an instance of InfantryUnit with attack and armor.
    *
-   * @param name
-   * @param health
+   * @param name unit's name.
+   * @param health unit's health.
+   * @param terrain unit's Terrain.
    */
   public InfantryUnit(String name, int health, Terrain terrain) {
     super(name, health, 15, 10, terrain);

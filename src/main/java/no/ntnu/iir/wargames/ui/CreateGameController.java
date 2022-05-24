@@ -6,25 +6,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import no.ntnu.iir.wargames.data.Army;
-import no.ntnu.iir.wargames.data.InfantryUnit;
 import no.ntnu.iir.wargames.data.Terrain;
 import no.ntnu.iir.wargames.data.Unit;
 import no.ntnu.iir.wargames.service.UnitFactory;
 import no.ntnu.iir.wargames.service.UnitType;
 
+/**
+ * Controller for the create game page.
+ * Linked to the FXML-file representing the view of MVC of JavaFx FXML.
+ *
+ * @author Håvard H. Vestbø
+ * @version 1.0
+ */
 public class CreateGameController {
 
   private Army army1;
   private Army army2;
-
   private Terrain terrain = Terrain.NOTERRAIN;
   private ResultController resultController;
+  private ArmyDetailsController armyDetailsController;
 
   @FXML
   private TextField armyName1;
@@ -91,6 +97,8 @@ public class CreateGameController {
   @FXML
   private Button loadExistingArmy2;
   @FXML
+  private Button saveArmies;
+  @FXML
   private Button startGame;
   @FXML
   private CheckBox hills;
@@ -100,10 +108,30 @@ public class CreateGameController {
   private CheckBox plains;
   @FXML
   private Scene resultScene;
+  @FXML
+  private Scene armyDetailsScene;
 
+  /**
+   * Set a scene for ResultScene.fxml in current class.
+   *
+   * @param resultScene resultScene's scene.
+   */
   public  void setResultScene(Scene resultScene) {
     this.resultScene = resultScene;
   }
+
+  /**
+   * Set a scene for ArmyDetailsScene.fxml in current class.
+   *
+   * @param armyDetailsScene armyDetail's scene.
+   */
+  public  void setArmyDetailsScene(Scene armyDetailsScene) {
+    this.armyDetailsScene = armyDetailsScene;
+  }
+
+  /**
+   * Hills chosen when checkbox is chosen.
+   */
   @FXML
   protected void hillsChecked() {
     if(this.hills.isSelected()) {
@@ -114,7 +142,9 @@ public class CreateGameController {
     }
   }
 
-
+  /**
+   * Forrest chosen when checkbox is chosen.
+   */
   @FXML
   protected void forrestChecked() {
     if(this.forrest.isSelected()) {
@@ -125,6 +155,9 @@ public class CreateGameController {
     }
   }
 
+  /**
+   * Plains chosen when checkbox is chosen.
+   */
   @FXML
   protected void plainsChecked() {
     if (this.forrest.isSelected()) {
@@ -135,29 +168,112 @@ public class CreateGameController {
     }
   }
 
+  /**
+   * Alert for wrong input in text areas and text fields.
+   */
+  private void alertForWrongInput() {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Wrong input. ");
+    alert.setHeaderText("One or more of the inputs are wrong. ");
+    alert.setContentText("Check if health and number of units are a positive integer (no decimal) and contains no text (String) .  ");
+  }
+
+  /**
+   * Changes scene and sets the next scene based on input form user.
+   *
+   * @param actionEvent when button is pressed.
+   */
   @FXML
   protected void startGameButtonPressed(ActionEvent actionEvent) {
-    createArmy1();
-    createArmy2();
-    this.resultController.setArmy1(army1);
-    this.resultController.setArmy2(army2);
-    this.resultController.getArmyName1();
-    this.resultController.getArmyName2();
-    this.resultController.getBattleResult();
-    this.resultController.getUnitsLeft1();
-    this.resultController.getUnitsLeft2();
+    try {
+      createArmy1();
+      createArmy2();
+      this.resultController.setArmy1(army1);
+      this.resultController.setArmy2(army2);
+      this.resultController.getArmyName1();
+      this.resultController.getArmyName2();
+     this.resultController.getBattleResult();
+      this.resultController.getUnitsLeft1();
+      this.resultController.getUnitsLeft2();
+    }catch (ArrayIndexOutOfBoundsException e)  {
+      alertForWrongInput();
+    }
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
     this.setScene(stage, this.resultScene);
   }
 
+  /**
+   * Changes scene and sets the next scene based on input form user.
+   *
+   * @param actionEvent when button is pressed.
+   */
+  @FXML
+  protected void armyDetailsButton1Pressed(ActionEvent actionEvent) {
+    this.armyDetailsController.setArmy1(army1);
+    this.armyDetailsController.getArmyName1();
+    this.armyDetailsController.getInfantryUnitName1();
+    this.armyDetailsController.getCavalryUnitName1();
+    this.armyDetailsController.getRangedUnitName1();
+    this.armyDetailsController.getCommanderUnitName1();
+    this.armyDetailsController.getInfantryDetails1();
+    this.armyDetailsController.getCavalryDetails1();
+    this.armyDetailsController.getRangedDetails1();
+    this.armyDetailsController.getCommanderDetails1();
+
+    Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+    this.setScene(stage, this.armyDetailsScene);
+  }
+
+  /**
+   * Changes scene and sets the next scene based on input form user.
+   *
+   * @param actionEvent when button is pressed.
+   */
+  @FXML
+  protected void armyDetailsButton2Pressed(ActionEvent actionEvent) {
+    this.armyDetailsController.setArmy2(army2);
+    this.armyDetailsController.getArmyName2();
+    this.armyDetailsController.getInfantryUnitName2();
+    this.armyDetailsController.getCavalryUnitName2();
+    this.armyDetailsController.getRangedUnitName2();
+    this.armyDetailsController.getCommanderUnitName2();
+    this.armyDetailsController.getInfantryDetails2();
+    this.armyDetailsController.getCavalryDetails2();
+    this.armyDetailsController.getRangedDetails2();
+    this.armyDetailsController.getCommanderDetails2();
+
+    Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+    this.setScene(stage, this.armyDetailsScene);
+  }
+
+  /**
+   * Saves the armies based on input form user.
+   *
+   * @param actionEvent when button is pressed.
+   */
+  @FXML
+  protected void saveArmiesButtonPressed(ActionEvent actionEvent) {
+    createArmy1();
+    createArmy2();
+  }
+
+  /**
+   * Change the scene in a stage.
+   *
+   * @param stage stage for scene.
+   * @param newScene new scene.
+   */
   private void setScene(Stage stage, Scene newScene) {
     stage.hide();
     stage.setScene(newScene);
     stage.show();
   }
 
-  @FXML
-  protected void createArmy1() {
+
+  /**
+   * Creates an army with values based on user's input.
+   */
+  private void createArmy1() {
     List<Unit> units = new ArrayList<>();
     this.army1 = new Army(armyName1.getText());
     createInfantryUnits1(units);
@@ -166,8 +282,10 @@ public class CreateGameController {
     createCommanderUnits1(units);
   }
 
-  @FXML
-  protected void createArmy2() {
+  /**
+   * Creates an army with values based on user's input.
+   */
+  private void createArmy2() {
     List<Unit> units = new ArrayList<>();
     this.army2 = new Army(armyName2.getText());
     createInfantryUnits2(units);
@@ -176,56 +294,109 @@ public class CreateGameController {
     createCommanderUnits2(units);
   }
 
+  /**
+   * Set a scene for Result.fxml in current class.
+   *
+   * @param resultController Result's scene.
+   */
   public void setResultController(ResultController resultController) {
     this.resultController = resultController;
   }
 
+  /**
+   * Set a scene for ArmyDetails.fxml in current class.
+   *
+   * @param armyDetailsController Army Details' scene
+   */
+  public void setArmyDetailsController(ArmyDetailsController armyDetailsController) {
+    this.armyDetailsController = armyDetailsController;
+  }
+
+  /**
+   * Create infantry units with values based on the user's input.
+   *
+   * @param units list of infantry units.
+   */
   private void createInfantryUnits1( List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.INFANTRY, this.nameInfantryUnit1.getText(), Integer.parseInt(this.healthInfantryUnits1.getText()), terrain, Integer.parseInt(numUnitsInfantryUnits1.getText()));
     army1.addAll(units);
   }
 
+  /**
+   * Create infantry units with values based on the user's input.
+   *
+   * @param units list of infantry units.
+   */
   private void createInfantryUnits2(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.INFANTRY, this.nameInfantryUnit2.getText(), Integer.parseInt(this.healthInfantryUnits2.getText()), terrain, Integer.parseInt(numUnitsInfantryUnits2.getText()));
     army2.addAll(units);
   }
 
+  /**
+   * Create cavalry units with values based on the user's input.
+   *
+   * @param units list of cavalry units.
+   */
   private void createCavalryUnits1(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.CAVALRY, this.nameCavalryUnit1.getText(), Integer.parseInt(this.healthCavalryUnits1.getText()), terrain, Integer.parseInt(numUnitsCavalryUnits1.getText()));
     army1.addAll(units);
   }
 
+  /**
+   * Create cavalry units with values based on the user's input.
+   *
+   * @param units list of cavalry units.
+   */
   private void createCavalryUnits2(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.CAVALRY, this.nameCavalryUnit2.getText(), Integer.parseInt(this.healthCavalryUnits2.getText()), terrain, Integer.parseInt(numUnitsCavalryUnits2.getText()));
     army2.addAll(units);
   }
 
+  /**
+   * Create ranged units with values based on the user's input.
+   *
+   * @param units list of ranged units.
+   */
   private void createRangedUnits1(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.RANGED, this.nameRangedUnit1.getText(), Integer.parseInt(this.healthRangedUnits1.getText()), terrain, Integer.parseInt(numUnitsRangedUnit1.getText()));
     army1.addAll(units);
   }
 
+  /**
+   * Create ranged units with values based on the user's input.
+   *
+   * @param units list of ranged units.
+   */
   private void createRangedUnits2(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.RANGED, this.nameRangedUnit2.getText(), Integer.parseInt(this.healthRangedUnits2.getText()), terrain, Integer.parseInt(numUnitsRangedUnit2.getText()));
     army2.addAll(units);
   }
 
+  /**
+   * Create commander units with values based on the user's input.
+   *
+   * @param units list of commander units.
+   */
   private void createCommanderUnits1(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.COMMANDER, this.nameCommanderUnit1.getText(), Integer.parseInt(this.healthCommanderUnits1.getText()), terrain, Integer.parseInt(numUnitsCommanderUnit1.getText()));
     army1.addAll(units);
   }
 
+  /**
+   * Create commander units with values based on the user's input.
+   *
+   * @param units list of commander units.
+   */
   private void createCommanderUnits2(List<Unit> units) {
     UnitFactory unitFactory = new UnitFactory();
     units = unitFactory.createUnits(UnitType.COMMANDER, this.nameCommanderUnit2.getText(), Integer.parseInt(this.healthCommanderUnits2.getText()), terrain, Integer.parseInt(numUnitsCommanderUnit2.getText()));
     army2.addAll(units);
   }
-
 }

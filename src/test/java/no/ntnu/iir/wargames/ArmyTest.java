@@ -20,14 +20,19 @@ public class ArmyTest {
   public ArmyTest() {
     }
 
-    @Test
-
+  /**
+   * Test army constructor with String name value.
+   */
+  @Test
     public void createInstanceOfArmy() {
       Army army = new Army("Human Army");
       assertEquals("Human Army", army.getArmyName());
     }
 
-    @Test
+  /**
+   * Test add unit to army method.
+   */
+  @Test
     public void testAdd() {
       Army army = new Army("Human Army");
       InfantryUnit footman = new InfantryUnit("footman", 100, terrain);
@@ -35,7 +40,10 @@ public class ArmyTest {
       assertEquals(true, army.hasUnits());
     }
 
-    @Test
+  /**
+   * Test add list of units to army.
+   */
+  @Test
     public void testAddAll() {
      List<Unit> units = new ArrayList<>();
       Army army = new Army("Human Army", units);
@@ -52,17 +60,24 @@ public class ArmyTest {
       army.addAll(unitList);
       assertEquals(4, units.size());
     }
-    @Test
+
+  /**
+   * Test remove unit from army.
+   */
+  @Test
     public void testRemove() {
       Army army = new Army("Human Army");
       InfantryUnit footman = new InfantryUnit("footman", 100, terrain);
       army.add(footman);
-      assertEquals(true, army.hasUnits());
+      assertTrue(army.hasUnits());
       army.remove(footman);
-      assertEquals(false, army.hasUnits());
+      assertFalse(army.hasUnits());
     }
 
-    @Test
+  /**
+   * Test method for returning every unit in army.
+   */
+  @Test
     public void testGetAllUnits() {
       Army army = new Army("Human Army");
       InfantryUnit infantryUnit = new InfantryUnit("Footman", 100, terrain);
@@ -83,7 +98,10 @@ public class ArmyTest {
       assertEquals(expResult,army.getAllUnits());
     }
 
-    @Test
+  /**
+   * Test get a random unit from army.
+   */
+  @Test
     public void testGetRandom() {
       System.out.println("getRandom");
       Army army = new Army("Human");
@@ -102,7 +120,10 @@ public class ArmyTest {
       assertTrue(expResult);
     }
 
-    @Test
+  /**
+   * Test get instance of unit from army.
+   */
+  @Test
   public void testGetInstanceOfUnit() {
     Army army = new Army("Human");
     Unit unit1 = new CavalryUnit("Cavalry Unit 1", 100, 50, 60, terrain);

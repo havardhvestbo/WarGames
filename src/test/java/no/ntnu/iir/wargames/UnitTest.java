@@ -16,6 +16,9 @@ public class UnitTest {
   public UnitTest() {
   }
 
+  /**
+   * Test constructor of infantry unit with values
+   */
   @Test
   public void createInstanceOfInfantryUnit() {
     InfantryUnit u = new InfantryUnit("Footman", 100, terrain);
@@ -28,6 +31,9 @@ public class UnitTest {
 
   }
 
+  /**
+   * Test constructor of cavalry unit with values
+   */
   @Test
   public void createInstanceOfCavalryUnit() {
     CavalryUnit u = new CavalryUnit("Knight", 100, terrain);
@@ -40,6 +46,9 @@ public class UnitTest {
     assertEquals(1, u.getResistBonus());
   }
 
+  /**
+   * Test constructor of ranged unit with values
+   */
   @Test
   public void createInstanceOfRangedUnit() {
     RangedUnit u = new RangedUnit("Archer", 100, terrain);
@@ -53,6 +62,9 @@ public class UnitTest {
     assertEquals(2,u.getResistBonus());
   }
 
+  /**
+   * Test constructor of commander unit with values
+   */
   @Test
   public void createInstanceOfCommanderUnit() {
     CommanderUnit u = new CommanderUnit("Mountain King", 180, terrain);
@@ -63,6 +75,4 @@ public class UnitTest {
     assertEquals(6, u.getAttackBonus());
     assertEquals(1, u.getResistBonus());
   }
-
-
 }
