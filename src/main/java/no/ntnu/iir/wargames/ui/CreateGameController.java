@@ -1,5 +1,6 @@
 package no.ntnu.iir.wargames.ui;
 
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.ActionEvent;
@@ -176,6 +177,7 @@ public class CreateGameController {
     alert.setTitle("Wrong input. ");
     alert.setHeaderText("One or more of the inputs are wrong. ");
     alert.setContentText("Check if health and number of units are a positive integer (no decimal) and contains no text (String) .  ");
+    alert.show();
   }
 
   /**
@@ -195,7 +197,7 @@ public class CreateGameController {
      this.resultController.getBattleResult();
       this.resultController.getUnitsLeft1();
       this.resultController.getUnitsLeft2();
-    } catch (ArrayIndexOutOfBoundsException e)  {
+    } catch (NumberFormatException e)  {
       alertForWrongInput();
     }
     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
